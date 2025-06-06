@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小红书运营资源导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        .categories {
+            display: grid;
+            gap: 30px;
+        }
+
+        .category {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-title {
+            font-size: 1.8em;
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .tool-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2d3748;
+            text-decoration: none;
+            flex-grow: 1;
+        }
+
+        .tool-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .tool-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .tool-description {
+            color: #718096;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+
+        .search-box {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.1em;
+            background: transparent;
+            color: #4a5568;
+        }
+
+        .search-input::placeholder {
+            color: #a0aec0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>小红书运营资源导航</h1>
+            <p class="subtitle">精选优质工具，助力小红书运营成功</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="搜索工具..." id="searchInput">
+        </div>
+
+        <div class="categories">
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);">🎨</div>
+                    修图工具
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">稿定设计</div>
+                        </div>
+                        <a href="https://www.gaoding.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">图文笔记设计、排版、批量作图</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">醒图</div>
+                        </div>
+                        <a href="https://www.retouchpics.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">做封面、人像P图必备，功能强大</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">美图秀秀</div>
+                        </div>
+                        <a href="https://www.meituxiuxiu.com/zh-Hans" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">做封面、人像P图备选，与醒图类似</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">豆包 AI画图</div>
+                        </div>
+                        <a href="https://www.doubao.com/chat/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">AI一键做图，质量高、稳定</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #4ecdc4, #44a08d);">🔤</div>
+                    字体查询
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">识字体网</div>
+                        </div>
+                        <a href="https://www.likefont.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">专业的字体识别和查询平台</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">字由</div>
+                        </div>
+                        <a href="https://www.hellofont.cn" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">字体管理和字体库平台</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #a8edea, #fed6e3);">✍️</div>
+                    小红书文案
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">多种草AI</div>
+                        </div>
+                        <a href="http://duozhongcao.com" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">专业的小红书文案生成工具</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">Claude</div>
+                        </div>
+                        <a href="https://claude.ai/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">写文案蓝星最强大模型，可自由调配提示词</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">Monica</div>
+                        </div>
+                        <a href="https://monica.im/home" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">集合各类大模型的智能体平台，可自由调配提示词</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);">📥</div>
+                    批量下载对标笔记
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">江湖工具箱</div>
+                        </div>
+                        <a href="https://jianghudata.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">客户端，稳定免费，可批量下载视频和图文笔记</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">智小红</div>
+                        </div>
+                        <a href="https://www.zhixiaohong.com/workbench/downloader.html" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">浏览器插件，轻量</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">窜改猴</div>
+                        </div>
+                        <a href="https://www.tampermonkey.net/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">配合脚本可以生成多种功能的插件</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #667eea, #764ba2);">📝</div>
+                    视频文案提取
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">江湖工具箱</div>
+                        </div>
+                        <a href="https://jianghudata.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">免费版可用，收费版稳定准确率高，调用的是阿里通悟API</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">飞书妙记</div>
+                        </div>
+                        <a href="https://www.feishu.cn/product/minutes" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">准确率高</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">阿里通义听悟</div>
+                        </div>
+                        <a href="https://tingwu.aliyun.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">准确率高</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">轻抖</div>
+                        </div>
+                        <a href="https://www.qingdou.vip" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">免费，需要看广告</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);">🎵</div>
+                    配音/声音克隆
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">海螺AI</div>
+                        </div>
+                        <a href="https://www.minimaxi.com/audio/voice-isolator" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">比X映降噪好太多</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">Nozi AI</div>
+                        </div>
+                        <a href="https://noiz.ai/landing" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">专业的AI音频处理工具</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #fa709a, #fee140);">⚠️</div>
+                    违禁词检测
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">零克查词</div>
+                        </div>
+                        <a href="http://ci.lingke.pro/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">专业的违禁词检测工具</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">句无忧</div>
+                        </div>
+                        <a href="https://www.check51.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">智能文本合规检测平台</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #a8caba, #5d4e75);">📊</div>
+                    数据分析
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">灰豚数据</div>
+                        </div>
+                        <a href="https://wxaurl.cn/coH1vCUDO3r" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">小红书数据分析平台</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">新红</div>
+                        </div>
+                        <a href="https://xh.newrank.cn/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">小红书数据监测与分析</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">5118</div>
+                        </div>
+                        <a href="https://www.5118.com/ci/xhs" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">关键词挖掘</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);">😊</div>
+                    Emoji表情
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">emoji百宝箱</div>
+                        </div>
+                        <a href="https://emoji6.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">丰富的emoji表情库</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">getemoji</div>
+                        </div>
+                        <a href="https://getemoji.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">在线emoji表情复制工具</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon" style="background: linear-gradient(45deg, #667eea, #764ba2);">📲</div>
+                    私域引流
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">草料</div>
+                        </div>
+                        <a href="https://cli.im/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">微信群二维码转成链接</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-name">Photofunia</div>
+                        </div>
+                        <a href="https://photofunia.com/" class="tool-link" target="_blank">访问网站</a>
+                        <div class="tool-description">在图片中添加微信号，避免违规</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 小红书运营资源导航 - 助力您的小红书运营之路</p>
+        </footer>
+    </div>
+
+    <script>
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        const toolCards = document.querySelectorAll('.tool-card');
+        const categories = document.querySelectorAll('.category');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            categories.forEach(category => {
+                let hasVisibleTools = false;
+                const toolsInCategory = category.querySelectorAll('.tool-card');
+                
+                toolsInCategory.forEach(card => {
+                    const toolName = card.querySelector('.tool-name').textContent.toLowerCase();
+                    const toolDescription = card.querySelector('.tool-description').textContent.toLowerCase();
+                    
+                    if (toolName.includes(searchTerm) || toolDescription.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        hasVisibleTools = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                category.style.display = hasVisibleTools ? 'block' : 'none';
+            });
+        });
+
+        // 添加一些交互动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.category').forEach(category => {
+                category.style.opacity = '0';
+                category.style.transform = 'translateY(20px)';
+                category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(category);
+            });
+        });
+    </script>
+</body>
+</html>
