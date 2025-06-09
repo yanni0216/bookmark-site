@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const hotCategories = ['AI 配音', '对标批量下载'];
+    const hotCategories = ['AI 配音', '批量下载'];
+    const newCategories = ['私域引流'];
 
     const papaScript = document.createElement('script');
     papaScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js';
@@ -61,7 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const sidebar = document.getElementById('sidebar');
         const content = document.getElementById('content');
-        sidebar.innerHTML = ''; 
+        const sidebarUl = sidebar.querySelector('ul');
+        sidebarUl.innerHTML = '';
         content.innerHTML = ''; 
         const navUl = document.createElement('ul');
 
@@ -77,6 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 hotBadge.className = 'hot-badge';
                 hotBadge.textContent = 'Hot';
                 navA.appendChild(hotBadge);
+            } else if (newCategories.includes(categoryName)) {
+                const newBadge = document.createElement('span');
+                newBadge.className = 'new-badge';
+                newBadge.textContent = 'New';
+                navA.appendChild(newBadge);
             }
             navLi.appendChild(navA);
             navUl.appendChild(navLi);
@@ -94,7 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 hotBadge.className = 'hot-badge';
                 hotBadge.textContent = 'Hot';
                 title.appendChild(hotBadge);
-                hotBadge.style.marginLeft = '10px';
+            } else if (newCategories.includes(categoryName)) {
+                const newBadge = document.createElement('span');
+                newBadge.className = 'new-badge';
+                newBadge.textContent = 'New';
+                title.appendChild(newBadge);
             }
             section.appendChild(title);
             
@@ -115,8 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 description.className = 'description';
                 description.textContent = tool['简介'];
 
+                const url = document.createElement('p');
+                url.className = 'website-url';
+                url.textContent = tool['链接'];
+
                 toolCard.appendChild(name);
                 toolCard.appendChild(description);
+                toolCard.appendChild(url);
                 toolGrid.appendChild(toolCard);
             });
 
@@ -163,5 +179,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (navLinks.length > 0) {
             navLinks[0].classList.add('active');
         }
+
+        // Add hover effect from tool cards to category titles
+        const allToolCards = document.querySelectorAll('.tool-card');
+        allToolCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const section = card.closest('.category-section');
+                if (section) {
+                    const categoryTitle = section.querySelector('.category-title');
+                    if (categoryTitle && !categoryTitle.classList.contains('highlight-flash')) {
+                        categoryTitle.classList.add('highlight-flash');
+                        categoryTitle.addEventListener('animationend', () => {
+                            categoryTitle.classList.remove('highlight-flash');
+                        }, { once: true });
+                    }
+                }
+            });
+        });
     }
 }); 
