@@ -1,0 +1,144 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: rgb(255, 237, 240);
+    color: #333;
+}
+
+.header {
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.slogan {
+    font-size: 14px;
+    color: #666;
+    margin: 4px 0 0;
+}
+
+.main-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 120px;
+    padding-right: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li a.active, .sidebar li a:hover {
+    background-color: rgba(255, 83, 103, 0.1);
+    color: rgb(255, 83, 103);
+}
+
+.hot-badge {
+    background-color: rgb(255, 83, 103);
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.content {
+    flex-grow: 1;
+    padding-left: 240px; 
+}
+
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tool-card .name {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(255, 83, 103);
+    margin: 0 0 10px;
+}
+
+.tool-card .description {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #999;
+} 
