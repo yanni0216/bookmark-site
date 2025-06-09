@@ -57,7 +57,6 @@ body, html {
     list-style: none;
     padding: 0 20px 10px;
     margin: 0;
-    flex-grow: 1;
 }
 
 .sidebar ul li a {
